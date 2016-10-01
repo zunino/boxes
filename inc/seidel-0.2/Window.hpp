@@ -25,6 +25,8 @@ namespace sdl {
             SDL_Renderer* renderer() throw (SDLError);
             SDL_Renderer* renderer(Uint32 flags) throw (SDLError);
 
+            void clear(const SDL_Color& color = {0, 0, 0, 255});
+
         private:
             SDL_Window* sdlWindow;
             SDL_Renderer* sdlRenderer;
