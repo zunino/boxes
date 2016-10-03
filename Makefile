@@ -29,7 +29,7 @@ bin/%.o: src/%.cpp
 setup:
 	@echo Setting up...
 	@mkdir -p bin 2> /dev/null
-	@cp ../Seidel/bin/seidel-0.2.a lib
+	@if test ! -s $(SEIDEL_LIB); then cp ../seidel/bin/seidel-0.2.a lib; fi
 
 debug:
 	@echo $(SRC)
