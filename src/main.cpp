@@ -135,7 +135,7 @@ void draw_box(Box& box, sdl::Window& window) {
 
 void bump_up(Box& box) {
     b2Body* body = box.b2_body();
-    body->ApplyForce(b2Vec2(0.0f, 15.0f), body->GetPosition(), false);
+    body->ApplyForce(b2Vec2(0.0f, 15.0f), body->GetPosition(), true);
 }
 
 int main() {
@@ -165,8 +165,11 @@ int main() {
             } else if (event.type == SDL_KEYDOWN) {
                 int keyCode = event.key.keysym.sym;
                 switch (keyCode) {
-                    case SDLK_SPACE:
+                    case SDLK_LSHIFT:
                         bump_up(box_1);
+                        break;
+                    case SDLK_RSHIFT:
+                        bump_up(box_2);
                         break;
                     case SDLK_ESCAPE:
                         quit = true;
