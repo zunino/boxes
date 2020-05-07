@@ -1,5 +1,5 @@
-PROJECT_NAME 		= bars
-PROJECT_DESCRIPTION = Bars - A simple example using Box 2D
+PROJECT_NAME 		= boxes
+PROJECT_DESCRIPTION = Boxes - A simple example using Box 2D
 PROJECT_VERSION 	= 1.0
 
 BOX2D_CFLAGS 		= -I/usr/include/Box2D
@@ -20,7 +20,7 @@ UNITS      			= main
 SRC       			:= $(addsuffix .cpp, $(addprefix src/, $(UNITS)))
 OBJ       			:= $(addsuffix .o, $(addprefix bin/, $(UNITS)))
 
-bars: setup $(OBJ)
+$(PROJECT_NAME): setup $(OBJ)
 	$(CC) -o $(PROJECT_NAME) $(OBJ) $(SEIDEL_LIB) $(LDFLAGS)
 
 bin/%.o: src/%.cpp
@@ -39,3 +39,4 @@ clean:
 	@echo Cleaning up...
 	@rm -f bin/*.o
 	@rm -f bin/*.a
+	@rm -f $(PROJECT_NAME)
